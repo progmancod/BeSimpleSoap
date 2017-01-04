@@ -152,7 +152,7 @@ class Parser
             $name = $matches[1];
             $delimiter = $matches[2];
             $remainder = substr($remainder, strlen($name)+1);
-            if (!preg_match('/([^;]+)(;)?(\s|$)?/', $remainder, $matches)) {
+            if (!preg_match('/([^;]+)(;\s*|\s*$)/', $remainder, $matches)) {
                 break;
             }
             $value = rtrim($matches[1], ';');
