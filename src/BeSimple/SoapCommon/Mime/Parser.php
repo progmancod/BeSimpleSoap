@@ -62,6 +62,10 @@ class Parser
                 }
                 if (strpos($currentHeader, ':') !== false) {
                     list($headerName, $headerValue) = explode(':', $currentHeader, 2);
+                    // fix Java Compatibility
+                    if ($headerName == 'Content-Id') {
+                        $headerName = 'Content-ID';
+                    }
                     $headerValue = iconv_mime_decode($headerValue, 0, 'utf-8');
                     if (strpos($headerValue, ';') !== false) {
                         self::parseContentTypeHeader($currentPart, $headerName, $headerValue);
