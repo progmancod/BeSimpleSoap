@@ -12,7 +12,7 @@ namespace BeSimple\SoapBundle\Converter;
 
 use BeSimple\SoapBundle\Soap\SoapRequest;
 use BeSimple\SoapBundle\Soap\SoapResponse;
-use BeSimple\SoapBundle\Util\String as StringHelper;
+use BeSimple\SoapBundle\Util\StringType;
 use BeSimple\SoapCommon\Converter\TypeConverterInterface;
 
 /**
@@ -40,7 +40,7 @@ class XopIncludeTypeConverter implements TypeConverterInterface
 
         $ref = $include->getAttribute('href');
 
-        if (StringHelper::startsWith($ref, 'cid:')) {
+        if (StringType::startsWith($ref, 'cid:')) {
             $cid = urldecode(substr($ref, 4));
 
             return $request->getSoapAttachments()->get($cid)->getContent();

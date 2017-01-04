@@ -7,17 +7,17 @@ Pre-existent Type
 +------------------------------------------------+-----------------+
 |                  Php Type                      |   Value Type    |
 +================================================+=================+
-| BeSimple\\SoapCommon\\Type\\KeyValue\\String   | String          |
+| BeSimple\\SoapCommon\\Type\\KeyValue\\StringType   | String          |
 +------------------------------------------------+-----------------+
-| BeSimple\\SoapCommon\\Type\\KeyValue\\Boolean  | Boolean         |
+| BeSimple\\SoapCommon\\Type\\KeyValue\\BooleanType  | Boolean         |
 +------------------------------------------------+-----------------+
-| BeSimple\\SoapCommon\\Type\\KeyValue\\Int      | Int             |
+| BeSimple\\SoapCommon\\Type\\KeyValue\\IntType      | Int             |
 +------------------------------------------------+-----------------+
-| BeSimple\\SoapCommon\\Type\\KeyValue\\Float    | Float           |
+| BeSimple\\SoapCommon\\Type\\KeyValue\\FloatType    | Float           |
 +------------------------------------------------+-----------------+
-| BeSimple\\SoapCommon\\Type\\KeyValue\\Date     | DateTime object |
+| BeSimple\\SoapCommon\\Type\\KeyValue\\DateType     | DateTime object |
 +------------------------------------------------+-----------------+
-| BeSimple\\SoapCommon\\Type\\KeyValue\\DateTime | DateTime object |
+| BeSimple\\SoapCommon\\Type\\KeyValue\\DateTimeType | DateTime object |
 +------------------------------------------------+-----------------+
 
 Controller
@@ -37,7 +37,7 @@ Controller
 
         /**
          * @Soap\Method("returnAssocArray")
-         * @Soap\Result(phpType = "BeSimple\SoapCommon\Type\KeyValue\String[]")
+         * @Soap\Result(phpType = "BeSimple\SoapCommon\Type\KeyValue\StringType[]")
          */
         public function assocArrayOfStringAction()
         {
@@ -49,8 +49,8 @@ Controller
 
         /**
          * @Soap\Method("sendAssocArray")
-         * @Soap\Param("assocArray", phpType = "BeSimple\SoapCommon\Type\KeyValue\String[]")
-         * @Soap\Result(phpType = "BeSimple\SoapCommon\Type\KeyValue\String[]")
+         * @Soap\Param("assocArray", phpType = "BeSimple\SoapCommon\Type\KeyValue\StringType[]")
+         * @Soap\Result(phpType = "BeSimple\SoapCommon\Type\KeyValue\StringType[]")
          */
         public function sendAssocArrayOfStringAction(array $assocArray)
         {
