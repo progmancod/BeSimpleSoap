@@ -66,6 +66,7 @@ class Curl
         $curlOptions = array(
             CURLOPT_ENCODING => '',
             CURLOPT_SSL_VERIFYPEER => false,
+	    CURLOPT_SSL_VERIFYHOST => false,
             CURLOPT_FAILONERROR => false,
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
@@ -80,7 +81,9 @@ class Curl
         if (isset($options['connection_timeout'])) {
             curl_setopt($this->ch, CURLOPT_CONNECTTIMEOUT, $options['connection_timeout']);
         }
-
+	if (isset($options['timeout'])) {
+            curl_setopt($this->ch, CURLOPT_TIMEOUT, $options['timeout']);
+        }
         if (isset($options['proxy_host'])) {
             if (false !== $options['proxy_host']) {
                 $proxyHost = $options['proxy_host'].(isset($options['proxy_port']) ? $options['proxy_port'] : 8080);
