@@ -9,6 +9,6 @@ class RequestFormatListener
     public function onKernelRequest(GetResponseEvent $event)
     {
         $event->getRequest()->setFormat('wsdl', 'application/wsdl+xml');
-        $event->getRequest()->setFormat('soap', 'application/soap+xml');
+        $event->getRequest()->setFormat('soap', 'application/text+xml');
     }
 }
