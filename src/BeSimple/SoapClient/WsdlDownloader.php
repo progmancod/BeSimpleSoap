@@ -93,7 +93,7 @@ class WsdlDownloader
         if ($isRemoteFile || $this->resolveRemoteIncludes) {
             $cacheFilePath = $this->cacheDir.DIRECTORY_SEPARATOR.'wsdl_'.md5($wsdl).'.cache';
 
-            if (!$this->cacheEnabled || !file_exists($cacheFilePath) || (filemtime($cacheFilePath) + $this->cacheTtl) < time()) {
+            if (!$this->cacheEnabled || !file_exists($cacheFilePath) || !file_get_contents($cacheFilePath) || (filemtime($cacheFilePath) + $this->cacheTtl) < time()) {
                 if ($isRemoteFile) {
                     // execute request
                     $responseSuccessfull = $this->curl->exec($wsdl);
